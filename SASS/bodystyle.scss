@@ -1,0 +1,186 @@
+.banner{
+     width: 1031px;height: 382px;position:relative;
+    .bannerbox{
+        margin-left: 116px;z-index: 500;
+        ul{width: 1000px;height: 382px;
+            li{position: absolute;display: none;width: 1000px;height: 382px;
+                img{width: 100%;height: 382px;}
+            }
+        }
+        #dot{position: absolute;bottom: 0;width: 220px;height: 50px;opacity:0.5;
+            margin-left:400px ;
+        }
+        #dot div{width: 30px;height: 30px;border-radius:30px;
+            background: white;float: left;margin: 5px;text-align: center;line-height: 30px;}
+        #dot .current{background: #f39e20;}
+    }
+    
+}
+.recommend{
+    width: 1263px;height: 610px;padding-left:32px ;margin-top: 30px;
+    .head{
+        width: 1263px;float: left;
+        p:nth-child(1){
+            font-size: 16px;color: black;float: left;
+        }
+        p:nth-child(2){
+            width: 150px;height:20px;float: left;margin-left: 25px;
+            background: url(../imgs/little/index_icon_new.png) no-repeat -25px -330px;
+        }
+    }
+    .products{
+        width: 950px;height: 566px;float: left;
+        .product{
+            width: 237px;height: 280px;border: 1px solid #999999;position: relative;float: left;
+            a p:nth-of-type(1){
+                width: 237px;height: 24px;line-height: 24px;font-size: 14px;
+                text-align: center;color: black;
+            }
+            a div:nth-of-type(1){
+                color: red;
+                width: 237px;height: 18px;text-align: center;line-height: 18px;font-size: 12px;
+            }
+            a div:nth-of-type(2) img{
+                width: 235px;height: 236px;
+            }
+            a p:nth-of-type(2){
+                width: 80px;height: 30px;position: absolute;left:0;top:42px;
+                background: #75ab25;text-align: center;line-height: 30px;color: white;
+                font-size: 14px;
+            }
+            .toCart{
+                width: 235px;height: 30px;position: absolute;left: 0;top:249px;
+                background: #75ab25;color: white;line-height: 30px;display: none;
+                div{
+                    width:16px ;height: 16px;float: left;margin-top: 7px;margin-left: 62px;margin-right: 10px;
+                    background:url(../imgs/little/indexsprite.png) no-repeat -66px -182px;
+                }
+            }
+            &:hover .toCart{
+                display: block; cursor: pointer;
+            }
+        }   
+    }
+    .pro_right{
+        width: 225px;height: 560px;margin-left: 26px;border: 1px solid #ccc;float: left;
+        div div:nth-child(1){
+            width: 225px;height: 257px;
+            img{
+                width: 225px;height: 256px;
+            }
+        }
+        div div:nth-child(2){
+            width: 225px;height: 40px;line-height: 40px;border: 1px solid #ccc;
+            h4{
+                float: left;margin-left: 10px;
+            }
+            span{
+                float: right;margin-right: 20px;color: #ccc;font-size: 12px;
+            }
+        }
+        div ul{width: 225px;height: 267px;padding: 10px 0 10px 10px;
+            li{
+                height: 25px;width: 215px;
+                a{
+                    font-size: 12px;color: #666666;
+                }
+            }
+        }
+    }
+}
+#menu{
+    position: fixed;top: 400px;left: 5px;display: none;background: white;z-index: 1000;opacity: 0.8;
+    li{list-style: none;width: 80px;height: 30px;border: 1px solid #669900;text-align: center;position: relative;
+    border-bottom:none ;}
+    li:last-child{border-bottom:1px solid #669900;}
+    li span{
+        display: none;background:#669900;width: 80px;height: 30px;position: absolute;left: 0;top: 0;
+        color: white;
+    }
+    
+    
+}
+.inllu1,.inllu2{
+    width: 100%;height: 130px;
+    div{
+        width: 1263px;height: 130px;padding-left:32px ;
+        img{
+        width: 1190px;height: 103px;
+        }
+    }
+}
+.imp_product{
+    border-top: 1px solid #76ac25;
+}
+.cha_product{
+    border-top: 1px solid #d12e49;
+}
+.gi_product{
+    border-top: 1px solid #78b270;
+}
+.cou_product{
+    border-top: 1px solid #f08c18;
+}
+.sk_product{
+    border-top: 1px solid #fa648c;
+}
+.veg_product{
+    border-top: 1px solid #ad96d9;
+}
+.import,.china,.gift,.coupon,.sock,.vegetable{
+    width: 100%;height: 622px;padding-left: 40px;position: relative;
+    div:nth-of-type(1){
+        width: 1263px;height: 622px;
+        div:nth-of-type(1){
+            width: 224px;height: 593px;float: left;
+            a:nth-child(1){
+                float: left;
+                img{
+                    width: 216px;height: 50px;margin-left: 8px;
+                }
+            }
+            a:nth-child(2){
+                float: left;
+                img{
+                    width: 224px;
+                }
+            } 
+        }
+        .imp_product,.cha_product,.gi_product,.cou_product,.sk_product,.veg_product{
+            width: 988px;height: 578px;float: left;padding-left: 16px;padding-top: 20px;
+            .productxxx{
+                width: 224px;height: 287px;position: relative;float: left;margin-left: 19px;
+                a div:nth-of-type(1) {
+                    float: left;width: 224px;height: 220px;
+                    img{
+                        width: 224px;height: 220px;margin-left: 0px;
+                    }
+                }
+                a p:nth-of-type(1){
+                    font-size: 12px;color: #666666;text-align: center;width: 224px;height: 30px;
+                    line-height: 30px;float: left;
+                }
+                a p:nth-of-type(2){
+                    font-size: 16px;color: #ea5404;text-align: center;width: 50px;height: 30px;
+                    line-height: 30px;float: left;font-weight: 900;margin-left: 10px;
+                }
+                a p:nth-of-type(3){
+                    font-size: 14px;color: #666666;text-align: center;width: 50px;height: 30px;
+                    line-height: 30px;float: left;margin-left:40px;text-decoration: line-through;
+                }
+                .toCart{
+                    width: 224px;height: 30px;position: absolute;left: 0;top:190px;cursor: pointer;
+                    background: #75ab25;color: white;line-height: 30px;display: none;
+                    div{
+                        width:16px ;height: 16px;float: left;margin-top: 7px;margin-left: 62px;margin-right: 10px;
+                        background:url(../imgs/little/indexsprite.png) no-repeat -66px -182px;
+                    }
+                }
+                &:hover .toCart{
+                    display: block;
+                }
+            }
+        }
+    }   
+}
+

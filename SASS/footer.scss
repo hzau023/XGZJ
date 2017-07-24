@@ -1,0 +1,74 @@
+.footer{
+    width: 1263px;height:350px;
+    .head{
+        background: #f5f5f5;height: 120px;width: 1263px;line-height: 120px;
+        a{
+            margin-left: 85px;
+        }
+    } 
+    .mid{
+        width: 1263px;height:180px;padding-left: 32px;
+        div:nth-child(1){
+            width: 260px;height: 180px;float: left;
+            div{
+                width: 260px;height: 70px;margin-top: 35px;float: left;
+                img{
+                    width: 240px;height: 70px;
+                }
+            }
+            p:nth-of-type(1){
+                height: 30px;width: 260px;float: left;font-size: 20px;color: #646464;
+            }
+            p:nth-of-type(2){
+                height: 20px;width: 260px;float: left;font-size: 14px;color: #666666;
+            }
+        }
+        div:nth-child(2){
+            float: left;width: 645px;height: 140px;margin-top:40px;
+            ul{
+                float: left;width: 136px;margin-left: 20px;
+                p{
+                    color: #707070;font-weight: bold;font-size: 14px;height: 24px;line-height: 24px;
+                }
+                li{
+                    height: 24px;
+                    a{
+                        font-size: 12px;color: #646464;
+                    }
+                }
+            }
+        }
+        .right{
+            width: 222px;height: 105px;float: left;margin-top: 40px;
+            div:nth-child(1),div:nth-child(2){
+                width: 74px;height: 105px;margin-top: 0;margin-left: 30px;
+                p{
+                   width: 74px; color: #707070;font-weight: bold;font-size: 14px;height: 24px;
+                   line-height: 24px;text-align: center;
+                }
+                img{
+                    width: 74px;height: 74px;
+                }
+            }
+        }
+    }
+    .foot{
+        width: 1180px;height: 50px;border-top: 1px solid #E0E0E0;padding-top:15px ;
+        float: left;margin-left: 32px;
+        div{
+            float: left;width: 100px;
+        }
+        ul{
+            width: 900px;height: 18px;float: left;
+            li{
+                float: left;
+                a{
+                    padding: 8px;font-size: 12px;color: #646464;
+                }
+            }
+        }
+        p{
+            font-size: 12px;color: #646464;float: left;margin-left: 8px;margin-top: 3px;
+        }
+    }
+}

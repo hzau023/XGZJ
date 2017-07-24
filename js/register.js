@@ -1,0 +1,164 @@
+$(function(){
+	//用户名确认
+	$("#reg_name").blur(function(){
+		$.cookie.json=true;
+		var reg_name=$("#reg_name").val(),
+			rgx=/^[0-9a-zA-Z]{5,12}$/,
+			_msg=$.cookie("msg");
+		if(!_msg==null){
+			for(var i=0,len=_msg.length;i<len;i++){
+				var prod=_msg[i];
+				if(prod.name==reg_name){
+					$(".reg_name_span2").css({
+					"display":"block"
+					})
+					$("#reg_btn").attr("disabled",true)
+				}
+			}
+		}else{
+			if(rgx.test(reg_name)){
+				$(".reg_name_span3").css({
+					"display":"block"
+				})
+				$("#reg_btn").attr("disabled",false)
+			}else{
+				$(".reg_name_span1").css({
+					"display":"block"
+				})
+				$("#reg_btn").attr("disabled",true)
+			}
+		}	
+	})
+	$("#reg_name").focus(function(){
+		$(".reg_name_span1,.reg_name_span2,.reg_name_span3").css({
+			"display":"none"
+		})
+	})
+	//邮箱确认
+	$("#reg_email").blur(function(){
+		var reg_email=$("#reg_email").val(),
+			rgx=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+		if(rgx.test(reg_email)){
+			$(".reg_email_span2").css({
+				"display":"block"
+			})
+		}else{
+			$(".reg_email_span1").css({
+				"display":"block"
+			})
+			$("#reg_btn").attr("disabled",true)
+		}
+	})
+	$("#reg_email").focus(function(){
+		$(".reg_email_span1,.reg_email_span2").css({
+			"display":"none"
+		})
+	})
+	//密码输入确认
+	$("#reg_pd").blur(function(){
+		var reg_pd=$("#reg_pd").val(),
+			len=reg_pd.length,
+			rgx=/^\w{5,15}$/;
+		if(rgx.test(reg_pd)){
+			$(".reg_pd_span2").css({
+				"display":"block"
+			})
+		}else{
+			$(".reg_pd_span1").css({
+				"display":"block"
+			})
+			$("#reg_btn").attr("disabled",true)
+		}
+		//密码强度验证
+		if(len==6){
+			$(".a").css({
+				"background":"red"
+			})
+		}else if(len>6&len<13){
+			$(".b").css({
+				"background":"yellow"
+			})
+		}else if(len>=13){
+			$(".c").css({
+				"background":"green"
+			})
+		}
+	})
+	$("#reg_pd").focus(function(){
+		$(".reg_pd_span1,.reg_pd_span2").css({
+			"display":"none"
+		})
+		$(".a,.b,.c").css({
+			"background":"#c4c4c4"
+		})
+	})
+	//二次密码验证确认
+	$("#regx_pd").blur(function(){
+		var reg_pd=$("#reg_pd").val(),
+			regx_pd=$("#regx_pd").val();
+		if(reg_pd==regx_pd){
+			$(".regx_pd_span2").css({
+				"display":"block"
+			})
+		}else{
+			$(".reg_pd_span1").css({
+				"display":"block"
+			})
+			$("#reg_btn").attr("disabled",true)
+		}
+	})
+	$("#regx_pd").focus(function(){
+		$(".regx_pd_span2,.regx_pd_span1").css({
+				"display":"none"
+			})
+	})
+	//手机验证
+	$("#reg_phone").blur(function(){
+		var reg_phone=$("#reg_phone").val(),
+			rgx=/^1[3|4|5|7|8][0-9]{9}$/;
+		if(rgx.test(reg_phone)){
+			$(".regx_phone_span2").css({
+				"display":"block"
+			})
+		}else{
+			$(".regx_phone_span1").css({
+				"display":"block"
+			})
+			$("#reg_btn").attr("disabled",true)
+		}
+	})
+	$("#reg_phone").focus(function(){
+		$(".regx_phone_span1,.regx_phone_span2").css({
+			"display":"none"
+		})
+	})
+
+	//点击注册
+	$("#reg_btn").click(function(){
+		var reg_name=$("#reg_name").val(),
+			reg_email=$("#reg_email").val(),
+			reg_pd=$("#reg_pd").val(),
+			regx_pd=$("#regx_pd").val(),
+			reg_phone=$("#reg_phone").val(),
+			checked=$("#reg_check").prop("checked");
+		var prod={
+			name:reg_name,
+			email:reg_email,
+			password:reg_pd,
+			phone:reg_phone
+		}
+		if(reg_name.length==0||reg_email.length==0||reg_pd.length==0||regx_pd.length==0||reg_phone.length==0){
+			alert("内容不能为空")
+		}else{
+			if(!checked){
+				alert("请阅读《用户协议》")
+			}else{
+				$.cookie.json=true;
+				var _msg=$.cookie("msg")||[];
+				_msg.push(prod)
+				$.cookie("msg",_msg,{expires:7})
+				location="login.html"
+			}
+		}
+	})
+})

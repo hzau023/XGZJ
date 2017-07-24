@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bodyindex.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<script src="js/jquery/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/artTemplate/template-native.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery_plugins/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fly/jquery.fly.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bodyindex.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--推荐产品-->
+		<script type="text/html" id="recommend_template">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div class="product">
+					<a href="html/product_details.html" class="ify_xxx">
+						<p class="name"><%= prod.name %></p>
+						<div class="exp"><%= prod.exp %></div>
+						<div><img class="img_src" src=<%= prod.src %>/></div>
+						<p><span>￥</span><span class="newprice"><%= prod.price %></span></p>
+						<div class="amount"></div>
+					</a>
+					<div class="toCart"><div></div><%= "加入购物车" %></div>
+				</div>	
+			<% } %>
+		</script>
+		<script type="text/html" id="recommend_right">
+			<% for(var i=0,len=right.length;i<len;i++){
+				var content=right[i];
+			%>
+				<div>
+					<div><a href=""><img src='<%= content.src %>'/></a></div>
+					<div><h4><%= "最新动态" %></h4><span><a href=""><%= "更多>" %></a></span></div>
+					<ul>
+						<li><a href=""><%= content.new1 %></a></li>
+						<li><a href=""><%= content.new2 %></a></li>
+						<li><a href=""><%= content.new3 %></a></li>
+						<li><a href=""><%= content.new4 %></a></li>
+						<li><a href=""><%= content.new5 %></a></li>
+						<li><a href=""><%= content.new6 %></a></li>
+						<li><a href=""><%= content.new7 %></a></li>
+						<li><a href=""><%= content.new8 %></a></li>
+						<li><a href=""><%= content.new9 %></a></li>
+						<li><a href=""><%= content.new10 %></a></li>
+					</ul>
+				</div>
+			<% } %>
+		</script>
+		<!--进口水果-->
+		<script type="text/html" id="import_left">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div>
+					<a href=""><img src=<%= prod.src1 %>/></a>
+					<a href=""><img src=<%= prod.src2 %>/></a>
+				</div>
+			<% } %>
+		</script>
+		<script type="text/html" id="import_pro">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div class="productxxx">
+					<a href="html/product_details.html" class="ify_xxx">
+						<div><img class="img_src" src=<%= prod.src %>/></div>
+						<p class="name"><%= prod.name %></p>
+						<p><span>￥</span><span class="newprice"><%= prod.newprice %></span></p>
+						<p><span>￥</span><span class="oldprice"><%= prod.oldprice %></span></p>
+						<div class="amount"></div>
+					</a>
+					<div class="toCart"><div></div><%= "加入购物车" %></div>
+				</div>
+			<% } %>
+		</script>
+		<!--国产水果-->
+		<script type="text/html" id="china_left">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div>
+					<a href=""><img src=<%= prod.src1 %>/></a>
+					<a href=""><img src=<%= prod.src2 %>/></a>
+				</div>
+			<% } %>
+		</script>
+		<script type="text/html" id="china_pro">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div class="productxxx">
+					<a href="html/product_details.html" class="ify_xxx">
+						<div><img class="img_src" src=<%= prod.src %>/></div>
+						<p class="name"><%= prod.name %></p>
+						<p><span>￥</span><span class="newprice"><%= prod.newprice %></span></p>
+						<p><span>￥</span><span class="oldprice"><%= prod.oldprice %></span></p>
+						<div class="amount"></div>
+					</a>
+					<div class="toCart"><div></div><%= "加入购物车" %></div>
+				</div>
+			<% } %>
+		</script>
+		<!--水果礼盒-->
+		<script type="text/html" id="gift_left">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div>
+					<a href=""><img src=<%= prod.src1 %>/></a>
+					<a href=""><img src=<%= prod.src2 %>/></a>
+				</div>
+			<% } %>
+		</script>
+		<script type="text/html" id="gift_pro">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div class="productxxx">
+					<a href="html/product_details.html" class="ify_xxx">
+						<div><img class="img_src" src=<%= prod.src %>/></div>
+						<p class="name"><%= prod.name %></p>
+						<p><span>￥</span><span class="newprice"><%= prod.newprice %></span></p>
+						<p><span>￥</span><span class="oldprice"><%= prod.oldprice %></span></p>
+						<div class="amount"></div>
+					</a>
+					<div class="toCart"><div></div><%= "加入购物车" %></div>
+				</div>
+			<% } %>
+		</script>
+		<!--水果礼品卡-->
+		<script type="text/html" id="coupon_left">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div>
+					<a href=""><img src=<%= prod.src1 %>/></a>
+					<a href=""><img src=<%= prod.src2 %>/></a>
+				</div>
+			<% } %>
+		</script>
+		<script type="text/html" id="coupon_pro">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div class="productxxx">
+					<a href="html/product_details.html" class="ify_xxx">
+						<div><img class="img_src" src=<%= prod.src %>/></div>
+						<p class="name"><%= prod.name %></p>
+						<p><span>￥</span><span class="newprice"><%= prod.newprice %></span></p>
+						<p><span>￥</span><span class="oldprice"><%= prod.oldprice %></span></p>
+						<div class="amount"></div>
+					</a>
+					<div class="toCart"><div></div><%= "加入购物车" %></div>
+				</div>
+			<% } %>
+		</script>
+		<!--美味零食-->
+		<script type="text/html" id="sock_left">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div>
+					<a href=""><img src=<%= prod.src1 %>/></a>
+					<a href=""><img src=<%= prod.src2 %>/></a>
+				</div>
+			<% } %>
+		</script>
+		<script type="text/html" id="sock_pro">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div class="productxxx">
+					<a href="html/product_details.html" class="ify_xxx">
+						<div><img class="img_src" src=<%= prod.src %>/></div>
+						<p class="name"><%= prod.name %></p>
+						<p><span>￥</span><span class="newprice"><%= prod.newprice %></span></p>
+						<p><span>￥</span><span class="oldprice"><%= prod.oldprice %></span></p>
+						<div class="amount"></div>
+					</a>
+					<div class="toCart"><div></div><%= "加入购物车" %></div>
+				</div>
+			<% } %>
+		</script>
+		<!--农特产品-->
+		<script type="text/html" id="vegetable_left">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div>
+					<a href=""><img src=<%= prod.src1 %>/></a>
+					<a href=""><img src=<%= prod.src2 %>/></a>
+				</div>
+			<% } %>
+		</script>
+		<script type="text/html" id="vegetable_pro">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div class="productxxx">
+					<a href="html/product_details.html" class="ify_xxx">
+						<div><img class="img_src" src=<%= prod.src %>/></div>
+						<p class="name"><%= prod.name %></p>
+						<p><span>￥</span><span class="newprice"><%= prod.newprice %></span></p>
+						<p><span>￥</span><span class="oldprice"><%= prod.oldprice %></span></p>
+						<div class="amount"></div>
+					</a>
+					<div class="toCart"><div></div><%= "加入购物车" %></div>
+				</div>
+			<% } %>
+		</script>
+		<!--购物车添加商品-->
+		<script type="text/html" id="cart_list_product">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div class="cart_product">
+					<div><img src=<%= prod.img_src %>/></div>
+					<div>
+						<p><span class="name"><%= prod.name %></span><span><%= prod.price %></span><span><%= "x"+prod.amount %></span></p>
+						<p class="cart_del">删除</p>
+					</div>
+					
+				</div>
+			<% } %>
+		</script>
+		<div class="header">
+			<div class="headerbox">
+				<div class="top">
+					<div id="floatHead">
+						<div><a href="index.html"><img src="imgs/little/logo.gif"/></a></div>
+						<ul>
+							<li class="li1"><a href="" class="a1">首页</a></li>
+							<li><a href="html/products_list.html" class="ify">进口水果</a></li>
+							<li><a href="html/products_list.html" class="ify">国产水果</a></li>
+							<li><a href="html/products_list.html" class="ify">鲜果礼品</a></li>
+							<li><a href="html/products_list.html" class="ify">鲜果切</a></li>
+							<li><a href="html/products_list.html" class="ify">美味零食</a></li>
+							<li><a href="html/products_list.html" class="ify">积分商城</a></li>
+							<li><a href="html/products_list.html" class="ify">农特产品</a></li>
+						</ul>
+						<ul class="ul2">
+							<li></li>
+							<li>
+								<a href="">会员中心<div></div></a>
+								<div class="ul2_list">
+									<div><a href="">我的订单</a></div>
+									<div><a href="">我的红包</a></div>
+									<div><a href="">我的收藏</a></div>
+									<div><a href="">账户余额</a></div>
+								</div>
+							</li>
+							<li>
+								<a href="">帮助中心<div></div></a>
+								<div class="ul3_list">
+									<div><a href="">购物指南</a></div>
+									<div><a href="">配送服务</a></div>
+									<div><a href="">配送服务</a></div>
+									<div><a href="">售后服务</a></div>
+								</div>
+							</li>
+							<li>
+								<a href="">网站导航<div></div></a>
+								<div class="ul4_list">
+									<div>
+										<h4>商品分类</h4>
+										<ul>
+											<li><a href="html/products_list.html" class="ify">进口水果</a></li>
+											<li><a href="html/products_list.html" class="ify">国产水果</a></li>
+											<li><a href="html/products_list.html" class="ify">美味零食</a></li>
+											<li><a href="html/products_list.html" class="ify">水果礼盒</a></li>
+											<li><a href="html/products_list.html" class="ify">鲜果乐园</a></li>
+											<li><a href="html/products_list.html" class="ify">水果礼品卡</a></li>
+											<li><a href="html/products_list.html" class="ify">农特产品</a></li>
+										</ul>
+									</div>
+									<div>
+										<h4>特色频道</h4>
+										<ul>
+											<li><a href="">酒水饮料</a></li>
+											<li><a href="">生鲜专区</a></li>
+											<li><a href="">团购专区</a></li>
+										</ul>
+									</div>
+									<div>
+										<h4>更多</h4>
+										<ul>
+											<li><a href="">手机版</a></li>
+											<li><a href="">收藏我们</a></li><br />
+											<li>客服电话：18030149520</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<p id="headerId">欢迎来到鲜果之家网上水果商城！ 鲜果之家，美味水果天天特价！ 请
+						<a href="html/login.html"> 登录</a> 
+						<a href="html/register.html"> 免费注册</a>
+						<a href=""> 【合作网站账户登录】</a>
+					</p>
+					<ul class="ul1">
+						<li><a href=""><img src="imgs/little/qq_logo_16.png"/></a></li>
+						<li><a href=""><img src="imgs/little/sina_logo_16.png"/></a></li>
+						<li><a href=""><img src="imgs/little/taobao_logo_16.gif"/></a></li>
+						<li><a href=""><img src="imgs/little/alipay_logo_16.gif"/></a></li>
+					</ul>
+					<ul class="ul2">
+						<li><a href="">我的订单</a></li>
+						<li>
+							<a href="">会员中心<div></div></a>
+							<div class="ul2_list">
+								<div><a href="">我的订单</a></div>
+								<div><a href="">我的红包</a></div>
+								<div><a href="">我的收藏</a></div>
+								<div><a href="">账户余额</a></div>
+							</div>
+						</li>
+						<li>
+							<a href="">帮助中心<div></div></a>
+							<div class="ul3_list">
+								<div><a href="">购物指南</a></div>
+								<div><a href="">配送服务</a></div>
+								<div><a href="">配送服务</a></div>
+								<div><a href="">售后服务</a></div>
+							</div>
+						</li>
+						<li>
+							<a href="">网站导航<div></div></a>
+							<div class="ul4_list">
+								<div>
+									<h4>商品分类</h4>
+									<ul>
+										<li><a href="html/products_list.html" class="ify">进口水果</a></li>
+										<li><a href="html/products_list.html" class="ify">国产水果</a></li>
+										<li><a href="html/products_list.html" class="ify">美味零食</a></li>
+										<li><a href="html/products_list.html" class="ify">水果礼盒</a></li>
+										<li><a href="html/products_list.html" class="ify">鲜果乐园</a></li>
+										<li><a href="html/products_list.html" class="ify">水果礼品卡</a></li>
+										<li><a href="html/products_list.html" class="ify">农特产品</a></li>
+									</ul>
+								</div>
+								<div>
+									<h4>特色频道</h4>
+									<ul>
+										<li><a href="">酒水饮料</a></li>
+										<li><a href="">生鲜专区</a></li>
+										<li><a href="">团购专区</a></li>
+									</ul>
+								</div>
+								<div>
+									<h4>更多</h4>
+									<ul>
+										<li><a href="">手机版</a></li>
+										<li><a href="">收藏我们</a></li><br />
+										<li>客服电话：18030149520</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="ul3">
+						<li><a href=""><img src="imgs/little/sina_logo_16.png"/></a></li>
+						<li><a href=""><div></div></a></li>
+					</ul>
+					
+					<div class="weixin">
+						<p>关注鲜果之家微信</p>
+						<img src="imgs/1451091172383491616.jpg"/>
+					</div>
+				</div>
+				<div class="mid">
+					<img src="imgs/1449127199437894093.png"/>
+					<div class="serh">
+						<input type="text" id="search" />
+						<input type="button" id="btn" value="搜索" />
+						<ul>
+							<li><a href="html/products_list.html" class="ify">礼品</a></li>
+							<li><a href="html/products_list.html" class="ify">礼盒</a></li>
+							<li><a href="html/products_list.html" class="ify">新年礼盒</a></li>
+							<li><a href="html/products_list.html" class="ify">平和蜜柚</a></li>
+							<li><a href="html/products_list.html" class="ify">百香果</a></li>
+							<li><a href="html/products_list.html" class="ify">猕猴桃</a></li>
+							<li><a href="html/products_list.html" class="ify">奇异果</a></li>
+							<li><a href="html/products_list.html" class="ify">苹果</a></li>
+							<li><a href="html/products_list.html" class="ify">蜂蜜</a></li>
+							<li><a href="html/products_list.html" class="ify">山竹</a></li>
+						</ul>
+					</div>
+					<div class="cart">
+						<div id="macart">
+							<div></div>
+							<p>我的购物车</p>
+						</div>
+						<div id="num">0</div>
+						<div id="cart_list">
+							<div class="null">
+								<p>购物车中暂无商品</p>
+								<p>如您已添加商品，请 <a href="html/login.html"> 登录 </a>查看</p>
+							</div>
+							<div class="cart_product_box"></div>
+							<div class="cart_foot">
+								<p>共有<span class="cart_foot_num"> </span>件商品</p>
+								<p>共计：<span>￥</span><span class="cart_foot_totile">0</span></p>
+								<a href="html/buy.html"><div>去购物车结算</div></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="nav">
+					<div class="totnav">
+						<a href="">全部商品分类</a>
+					</div>
+					<ul>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="html/products_list.html" class="ify">进口水果</a></li>
+						<li><a href="html/products_list.html" class="ify">国产水果</a></li>
+						<li><a href="html/products_list.html" class="ify">鲜果礼品</a></li>
+						<li><a href="html/products_list.html" class="ify">鲜果切</a></li>
+						<li><a href="html/products_list.html" class="ify">美味零食</a></li>
+						<li><a href="html/products_list.html" class="ify">积分商城</a></li>
+						<li><a href="html/products_list.html" class="ify">农特产品</a></li>
+					</ul>
+					<div id="list">
+						<div class="div1">
+							<div></div>
+							<p><a href="html/products_list.html" class="ify">进口水果</a></p><br />
+							<ul>
+								<li><a href="html/products_list.html" class="ify">奇异果</a></li>
+								<li><a href="html/products_list.html" class="ify">车厘子</a></li>
+								<li><a href="html/products_list.html" class="ify">芒果</a></li>
+							</ul>
+						</div>
+						<div class="div2">
+							<div></div>
+							<p><a href="html/products_list.html" class="ify">国产水果</a></p><br />
+							<ul>
+								<li><a href="html/products_list.html" class="ify">苹果</a></li>
+								<li><a href="html/products_list.html" class="ify">香梨</a></li>
+								<li><a href="html/products_list.html" class="ify">柑橘</a></li>
+							</ul>
+						</div>
+						<div class="div3">
+							<div></div>
+							<p><a href="html/products_list.html" class="ify">美味零食</a></p><br />
+							<ul>
+								<li><a href="html/products_list.html" class="ify">坚果干果</a></li>
+								<li><a href="html/products_list.html" class="ify">办公零食</a></li>
+							</ul>
+						</div>
+						<div class="div4">
+							<div></div>
+							<p><a href="html/products_list.html" class="ify">水果礼盒</a></p><br />
+							<ul>
+								<li><a href="html/products_list.html" class="ify">礼卡礼劵</a></li>
+								<li><a href="html/products_list.html" class="ify">礼篮礼盒</a></li>
+							</ul>
+						</div>
+						<div class="div5">
+							<div></div>
+							<p><a href="html/products_list.html" class="ify">鲜果乐园</a></p><br />
+							<ul>
+								<li><a href="html/products_list.html" class="ify">水果酱</a></li>
+								<li><a href="html/products_list.html" class="ify">水果周边</a></li>
+								<li><a href="html/products_list.html" class="ify">水果盆栽</a></li>
+							</ul>
+						</div>
+						<div class="div6">
+							<div></div>
+							<p><a href="html/products_list.html" class="ify">水果礼品卡</a></p>
+						</div>
+						<div class="list1">
+							<div>
+								<ul>
+									<li><a href="html/products_list.html" class="ify">奇异果</a></li>
+									<li><a href="html/products_list.html" class="ify">车厘子</a></li>
+									<li><a href="html/products_list.html" class="ify">芒果</a></li>
+									<li><a href="html/products_list.html" class="ify">火龙果</a></li>
+									<li><a href="html/products_list.html" class="ify">释迦果</a></li>
+									<li><a href="html/products_list.html" class="ify">榴莲</a></li>
+									<li><a href="html/products_list.html" class="ify">凤梨</a></li>
+									<li><a href="html/products_list.html" class="ify">山竹</a></li>
+									<li><a href="html/products_list.html" class="ify">提子</a></li>
+									<li><a href="html/products_list.html" class="ify">牛油果</a></li>
+								</ul>
+							</div>
+							<a><img src="imgs/1416508772185570493.jpg"/></a>
+						</div>
+						<div class="list2">
+							<div>
+								<ul>
+									<li><a href="html/products_list.html" class="ify">苹果</a></li>
+									<li><a href="html/products_list.html" class="ify">香梨</a></li>
+									<li><a href="html/products_list.html" class="ify">柑橘</a></li>
+									<li><a href="html/products_list.html" class="ify">提子</a></li>
+									<li><a href="html/products_list.html" class="ify">龙眼</a></li>
+									<li><a href="html/products_list.html" class="ify">桂圆</a></li>
+									<li><a href="html/products_list.html" class="ify">瓜类</a></li>
+									<li><a href="html/products_list.html" class="ify">桃李</a></li>
+									<li><a href="html/products_list.html" class="ify">菠萝</a></li>
+									<li><a href="html/products_list.html" class="ify">猕猴桃</a></li>
+								</ul>
+							</div>
+							<a><img src="imgs/1416508863946524622.jpg"/></a>
+						</div>
+						<div class="list3">
+							<div>
+								<ul>
+									<li><a href="html/products_list.html" class="ify">坚果干果</a></li>
+									<li><a href="html/products_list.html" class="ify">办公零食</a></li>
+								</ul>
+							</div>
+							<a href=""><img src="imgs/1416509167945906174.jpg"/></a>
+						</div>
+						<div class="list4">
+							<div>
+								<ul>
+									<li><a href="html/products_list.html" class="ify">礼卡礼券</a></li>
+									<li><a href="html/products_list.html" class="ify">礼篮礼盒</a></li>
+								</ul>
+							</div>
+							<a href=""><img src="imgs/1416509250255218952.jpg"/></a>
+						</div>
+						<div class="list5">
+							<div>
+								<ul>
+									<li><a href="html/products_list.html" class="ify">水果酱</a></li>
+									<li><a href="html/products_list.html" class="ify">水果周边</a></li>
+									<li><a href="html/products_list.html" class="ify">水果盆栽</a></li>
+								</ul>
+							</div>
+							<a href=""><img src="imgs/1416509486067712895.jpg"/></a>
+						</div>
+						<div class="list6">
+							<div>
+								<ul>
+								</ul>
+							</div>
+							<a href=""><img src="imgs/1416509645628929533.jpg"/></a>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<div class="banner">
+			<div class="bannerbox">
+				<ul>
+					<li style="display: block;"><a href=""><img src="imgs/1449302026835352013.jpg"/></a></li>
+					<li><a href=""><img src="imgs/1448865742478021223.png"/></a></li>
+					<li><a href=""><img src="imgs/1449301419331059489.jpg"/></a></li>
+					<li><a href=""><img src="imgs/1449301797856094984.jpg"/></a></li>
+					<li><a href=""><img src="imgs/1449302305540173816.jpg"/></a></li>
+				</ul>
+				<div id="dot"></div>
+			</div>
+		</div>
+		
+		<ul id="menu">
+			<li>1L<span>推荐</span></li>
+			<li>2L<span>进口水果</span></li>
+			<li>3L<span>国产水果</span></li>
+			<li>4L<span>水果礼盒</span></li>
+			<li>5L<span>水果礼品卡</span></li>
+			<li>6L<span>美味零食</span></li>
+			<li>8L<span>农特产品</span></li>
+			<li>返回顶部</li>
+		</ul>
+		<div class="recommend floor">
+			<div class="recommendbox">
+				<div class="head">
+					<p>	鲜果之家</p>
+					<p></p>
+				</div>
+				<div class="products"></div>
+				<div class="pro_right"></div>
+			</div>
+		</div>
+		</div>
+		<div class="inllu1">
+			<div class="inllu1box">
+				<a href=""><img src="imgs/1478942757105331228.jpg"/></a>
+			</div>
+		</div>
+		<div class="import floor">
+			<div>
+				<div class="imp_left"></div>
+				<div class="imp_product"></div>
+			</div>	
+		</div>
+		<div class="china  floor">
+			<div>
+				<div class="cha_left"></div>
+				<div class="cha_product"></div>
+			</div>	
+		</div>
+		<div class="gift  floor">
+			<div>
+				<div class="gi_left"></div>
+				<div class="gi_product"></div>
+			</div>	
+		</div>
+		<div class="coupon  floor">
+			<div>
+				<div class="cou_left"></div>
+				<div class="cou_product"></div>
+			</div>	
+		</div>
+		<div class="sock  floor">
+			<div>
+				<div class="sk_left"></div>
+				<div class="sk_product"></div>
+			</div>	
+		</div>
+		<div class="vegetable  floor">
+			<div>
+				<div class="veg_left"></div>
+				<div class="veg_product"></div>
+			</div>
+		</div>
+		<div class="inllu2">
+			<div>
+				<a href=""><img src="imgs/1478942797948247668.jpg"/></a>
+			</div>	
+		</div>
+		<div class="footer">
+			<div class="footerbox">
+				<div class="head">
+					<a href=""><img src="imgs/little/qq.jpg"/></a>
+					<a href=""><img src="imgs/little/cd.jpg"/></a>
+					<a href=""><img src="imgs/little/qc.jpg"/></a>
+					<a href=""><img src="imgs/little/sf.jpg"/></a>
+				</div>
+				<div class="mid">
+					<div>
+						<div><img src="imgs/little/logo.gif"/></div>
+						<p>18030149520</p>
+						<p>周一至周日8:30-22:00</p>
+					</div>
+					<div>
+						<ul>
+							<p>新手上路</p>
+							<li><a href="">购物流程</a></li>
+							<li><a href="">订购方式</a></li>
+							<li><a href="">常见问题</a></li>
+						</ul>
+						<ul>
+							<p>支付方式</p>
+							<li><a href="">货到付款区域</a></li>
+							<li><a href="">配送支付智能查询</a></li>
+							<li><a href="">支付方式说明</a></li>
+							<li><a href="">礼品卡</a></li>
+						</ul>
+						<ul>
+							<p>合作专区</p>
+							<li><a href="">供应商申请</a></li>
+							<li><a href="">商务合作</a></li>
+							<li><a href="">商品资质审核标准</a></li>
+							<li><a href="">供应商保证金协议</a></li>
+						</ul>
+						<ul>
+							<p>售后服务</p>
+							<li><a href="">售后服务保证</a></li>
+							<li><a href="">产品质量保证</a></li>
+							<li><a href="">退换货流程</a></li>
+						</ul>
+					</div>
+					<div class="right">
+						<div>
+							<p>手机客户端</p>
+							<img src="imgs/1451090990913635252.jpg"/>
+						</div>
+						<div>
+							<p>官方微信</p>
+							<img src="imgs/1451091172383491616.jpg"/>
+						</div>
+					</div>
+				</div>
+				<div class="foot">
+					<div>
+						<img src="imgs/little/kxicon.jpg"/>
+					</div>
+					<ul>
+						<li><a href="">免责条款 </a></li>
+						<li><a href="">隐私保护</a></li>
+						<li><a href="">咨询热点</a></li>
+						<li><a href="">联系我们</a></li>
+						<li><a href="">公司简介</a></li>
+						<li><a href="">商务合作</a></li>
+						<li><a href="">配送方式</a></li>
+					</ul>
+					<p>ICP备案证书号:闽ICP备11010696号</p>
+			</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+ 

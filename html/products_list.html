@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/products_list.css"/>
+		<script src="../js/jquery/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/artTemplate/template-native.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery_plugins/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/products_list.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--购物车-->
+		<script type="text/html" id="cart_list_product">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div class="cart_product">
+					<div><img src=<%= "../"+prod.img_src %>/></div>
+					<div>
+						<p><span class="name"><%= prod.name %></span><span><%= prod.price %></span><span><%= "x"+prod.amount %></span></p>
+						<p class="cart_del">删除</p>
+					</div>
+					
+				</div>
+			<% } %>
+		</script>
+		<!--商品列表-->
+		<script type="text/html" id="list_products_template">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div class="list_product">
+					<a href="product_details.html" class="ify_xxx">
+						<div><img class="img_src" src=<%= "../"+prod.src %>/></div>
+						<p><span>￥</span><span class="newprice"><%= prod.newprice %></span></p>
+						<p><span>￥</span><span class="oldprice"><%= prod.oldprice %></span></p>
+						<p class="name"><%= prod.name %></p>
+						<p class="exp"><%= prod.exp %></p>
+					</a>
+					<p>已有<span></span>人评价</p>
+					<input type="text" class="amount" value="1" class="amount"/>
+					<div> <div class="add">+</div><div class="minus">-</div></div>
+					<div class="toCart"><div></div>加入购物车</div>
+					
+				</div>
+			<% } %>
+		</script>
+		
+		<div class="header">
+			<div class="headerbox">
+				<div class="top">
+					<div id="floatHead">
+						<div><a href="index.html"><img src="../imgs/little/logo.gif"/></a></div>
+						<ul>
+							<li class="li1"><a href="../index.html" class="a1">首页</a></li>
+							<li><a  href="products_list.html" class="ify">进口水果</a></li>
+							<li><a  href="products_list.html" class="ify">国产水果</a></li>
+							<li><a  href="products_list.html" class="ify">鲜果礼品</a></li>
+							<li><a  href="products_list.html" class="ify">鲜果切</a></li>
+							<li><a  href="products_list.html" class="ify">美味零食</a></li>
+							<li><a  href="products_list.html" class="ify">积分商城</a></li>
+							<li><a  href="products_list.html" class="ify">农特产品</a></li>
+						</ul>
+						<ul class="ul2">
+							<li></li>
+							<li>
+								<a href="">会员中心<div></div></a>
+								<div class="ul2_list">
+									<div><a href="">我的订单</a></div>
+									<div><a href="">我的红包</a></div>
+									<div><a href="">我的收藏</a></div>
+									<div><a href="">账户余额</a></div>
+								</div>
+							</li>
+							<li>
+								<a href="">帮助中心<div></div></a>
+								<div class="ul3_list">
+									<div><a href="">购物指南</a></div>
+									<div><a href="">配送服务</a></div>
+									<div><a href="">配送服务</a></div>
+									<div><a href="">售后服务</a></div>
+								</div>
+							</li>
+							<li>
+								<a href="">网站导航<div></div></a>
+								<div class="ul4_list">
+									<div>
+										<h4>商品分类</h4>
+										<ul>
+											<li><a   href="products_list.html" class="ify">进口水果</a></li>
+											<li><a   href="products_list.html" class="ify">国产水果</a></li>
+											<li><a   href="products_list.html" class="ify">美味零食</a></li>
+											<li><a   href="products_list.html" class="ify">水果礼盒</a></li>
+											<li><a   href="products_list.html" class="ify">鲜果乐园</a></li>
+											<li><a   href="products_list.html" class="ify">水果礼品卡</a></li>
+											<li><a   href="products_list.html" class="ify">农特产品</a></li>
+										</ul>
+									</div>
+									<div>
+										<h4>特色频道</h4>
+										<ul>
+											<li><a href="">酒水饮料</a></li>
+											<li><a href="">生鲜专区</a></li>
+											<li><a href="">团购专区</a></li>
+										</ul>
+									</div>
+									<div>
+										<h4>更多</h4>
+										<ul>
+											<li><a href="">手机版</a></li>
+											<li><a href="">收藏我们</a></li><br />
+											<li>客服电话：18030149520</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<p id="headerId">欢迎来到鲜果之家网上水果商城！ 鲜果之家，美味水果天天特价！ 请
+						<a href="login.html"> 登录</a> 
+						<a href="register.html"> 免费注册</a>
+						<a href=""> 【合作网站账户登录】</a>
+					</p>
+					<ul class="ul1">
+						<li><a href=""><img src="../imgs/little/qq_logo_16.png"/></a></li>
+						<li><a href=""><img src="../imgs/little/sina_logo_16.png"/></a></li>
+						<li><a href=""><img src="../imgs/little/taobao_logo_16.gif"/></a></li>
+						<li><a href=""><img src="../imgs/little/alipay_logo_16.gif"/></a></li>
+					</ul>
+					<ul class="ul2">
+						<li><a href="">我的订单</a></li>
+						<li>
+							<a href="">会员中心<div></div></a>
+							<div class="ul2_list">
+								<div><a href="">我的订单</a></div>
+								<div><a href="">我的红包</a></div>
+								<div><a href="">我的收藏</a></div>
+								<div><a href="">账户余额</a></div>
+							</div>
+						</li>
+						<li>
+							<a href="">帮助中心<div></div></a>
+							<div class="ul3_list">
+								<div><a href="">购物指南</a></div>
+								<div><a href="">配送服务</a></div>
+								<div><a href="">配送服务</a></div>
+								<div><a href="">售后服务</a></div>
+							</div>
+						</li>
+						<li>
+							<a href="">网站导航<div></div></a>
+							<div class="ul4_list">
+								<div>
+									<h4>商品分类</h4>
+									<ul>
+										<li><a  href="products_list.html" class="ify">进口水果</a></li>
+										<li><a  href="products_list.html" class="ify">国产水果</a></li>
+										<li><a  href="products_list.html" class="ify">美味零食</a></li>
+										<li><a  href="products_list.html" class="ify">水果礼盒</a></li>
+										<li><a  href="products_list.html" class="ify">鲜果乐园</a></li>
+										<li><a  href="products_list.html" class="ify">水果礼品卡</a></li>
+										<li><a  href="products_list.html" class="ify">农特产品</a></li>
+									</ul>
+								</div>
+								<div>
+									<h4>特色频道</h4>
+									<ul>
+										<li><a href="">酒水饮料</a></li>
+										<li><a href="">生鲜专区</a></li>
+										<li><a href="">团购专区</a></li>
+									</ul>
+								</div>
+								<div>
+									<h4>更多</h4>
+									<ul>
+										<li><a href="">手机版</a></li>
+										<li><a href="">收藏我们</a></li><br />
+										<li>客服电话：18030149520</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="ul3">
+						<li><a href=""><img src="../imgs/little/sina_logo_16.png"/></a></li>
+						<li><a href=""><div></div></a></li>
+					</ul>
+					<div class="weixin">
+						<p>关注鲜果之家微信</p>
+						<img src="../imgs/1451091172383491616.jpg"/>
+					</div>
+				</div>
+				<div class="mid">
+					<a href="../index.html"><img src="../imgs/1449127199437894093.png"/></a>
+					<div class="serh">
+						<input type="text" id="search" />
+						<input type="button" id="btn" value="搜索" />
+						<ul>
+							<li><a href="">礼品</a></li>
+							<li><a href="">礼盒</a></li>
+							<li><a href="">新年礼盒</a></li>
+							<li><a href="">平和蜜柚</a></li>
+							<li><a href="">百香果</a></li>
+							<li><a href="">猕猴桃</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">苹果</a></li>
+							<li><a href="">蜂蜜</a></li>
+							<li><a href="">山竹</a></li>
+						</ul>
+					</div>
+					<div class="cart">
+						<div id="macart">
+							<div></div>
+							<p>我的购物车</p>
+						</div>
+						<div id="num">0</div>
+						<div id="cart_list">
+							<div class="null">
+								<p>购物车中暂无商品</p>
+								<p>如您已添加商品，请 <a href="login.html"> 登录 </a>查看</p>
+							</div>
+							<div class="cart_product_box"></div>
+							<div class="cart_foot">
+								<p>共有<span class="cart_foot_num"> </span>件商品</p>
+								<p>共计：<span>￥</span><span class="cart_foot_totile">0</span></p>
+								<a href="buy.html"><div>去购物车结算</div></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="nav">
+					<div class="totnav">
+						<a href="">全部商品分类</a>
+					</div>
+					<ul>
+						<li><a href="../index.html">首页</a></li>
+						<li><a href="products_list.html" class="ify">进口水果</a></li>
+						<li><a href="products_list.html" class="ify">国产水果</a></li>
+						<li><a href="products_list.html" class="ify">鲜果礼品</a></li>
+						<li><a href="products_list.html" class="ify">鲜果切</a></li>
+						<li><a href="products_list.html" class="ify">美味零食</a></li>
+						<li><a href="products_list.html" class="ify">积分商城</a></li>
+						<li><a href="products_list.html" class="ify">农特产品</a></li>
+					</ul>
+					<div id="list">
+						<div class="div1">
+							<div></div>
+							<p><a   href="products_list.html" class="ify">进口水果</a></p><br />
+							<ul>
+								<li><a href="">奇异果</a></li>
+								<li><a href="">车厘子</a></li>
+								<li><a href="">芒果</a></li>
+							</ul>
+						</div>
+						<div class="div2">
+							<div></div>
+							<p><a href="products_list.html" class="ify">国产水果</a></p><br />
+							<ul>
+								<li><a href="">苹果</a></li>
+								<li><a href="">香梨</a></li>
+								<li><a href="">柑橘</a></li>
+							</ul>
+						</div>
+						<div class="div3">
+							<div></div>
+							<p><a href="products_list.html" class="ify">美味零食</a></p><br />
+							<ul>
+								<li><a href="">坚果干果</a></li>
+								<li><a href="">办公零食</a></li>
+							</ul>
+						</div>
+						<div class="div4">
+							<div></div>
+							<p><a href="products_list.html" class="ify">水果礼盒</a></p><br />
+							<ul>
+								<li><a href="">礼卡礼劵</a></li>
+								<li><a href="">礼篮礼盒</a></li>
+							</ul>
+						</div>
+						<div class="div5">
+							<div></div>
+							<p><a href="products_list.html" class="ify">鲜果乐园</a></p><br />
+							<ul>
+								<li><a href="">水果酱</a></li>
+								<li><a href="">水果周边</a></li>
+								<li><a href="">水果盆栽</a></li>
+							</ul>
+						</div>
+						<div class="div6">
+							<div></div>
+							<p><a href="products_list.html" class="ify">水果礼品卡</a></p>
+						</div>
+						<div class="list1">
+							<div>
+								<ul>
+									<li><a href="">奇异果</a></li>
+									<li><a href="">车厘子</a></li>
+									<li><a href="">芒果</a></li>
+									<li><a href="">火龙果</a></li>
+									<li><a href="">释迦果</a></li>
+									<li><a href="">榴莲</a></li>
+									<li><a href="">凤梨</a></li>
+									<li><a href="">山竹</a></li>
+									<li><a href="">提子</a></li>
+									<li><a href="">牛油果</a></li>
+								</ul>
+							</div>
+							<a href=""><img src="../imgs/1416508772185570493.jpg"/></a>
+						</div>
+						<div class="list2">
+							<div>
+								<ul>
+									<li><a href="">苹果</a></li>
+									<li><a href="">香梨</a></li>
+									<li><a href="">柑橘</a></li>
+									<li><a href="">提子</a></li>
+									<li><a href="">龙眼</a></li>
+									<li><a href="">桂圆</a></li>
+									<li><a href="">瓜类</a></li>
+									<li><a href="">桃李</a></li>
+									<li><a href="">菠萝</a></li>
+									<li><a href="">猕猴桃</a></li>
+								</ul>
+							</div>
+							<a href=""><img src="../imgs/1416508863946524622.jpg"/></a>
+						</div>
+						<div class="list3">
+							<div>
+								<ul>
+									<li><a href="">坚果干果</a></li>
+									<li><a href="">办公零食</a></li>
+								</ul>
+							</div>
+							<a href=""><img src="../imgs/1416509167945906174.jpg"/></a>
+						</div>
+						<div class="list4">
+							<div>
+								<ul>
+									<li><a href="">礼卡礼券</a></li>
+									<li><a href="">礼篮礼盒</a></li>
+								</ul>
+							</div>
+							<a href=""><img src="../imgs/1416509250255218952.jpg"/></a>
+						</div>
+						<div class="list5">
+							<div>
+								<ul>
+									<li><a href="">水果酱</a></li>
+									<li><a href="">水果周边</a></li>
+									<li><a href="">水果盆栽</a></li>
+								</ul>
+							</div>
+							<a href=""><img src="../imgs/1416509486067712895.jpg"/></a>
+						</div>
+						<div class="list6">
+							<div>
+								<ul>
+								</ul>
+							</div>
+							<a href=""><img src="../imgs/1416509645628929533.jpg"/></a>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<div class="list_products">
+			<div class="list_productsbox">
+				<div class="head"><span>首页</span><span><span>></span><span class="pro_name_list"></span></span></div>
+				<div class="left">
+					<div class="totlist">所有分类</div>
+					<div class="imp_list xiaotot ify"><div></div><p>进口水果</p></div>
+					<div class="pingzhong ify">奇异果</div>
+					<div class="pingzhong ify">车厘子</div>
+					<div class="pingzhong ify">苹果</div>
+					<div class="pingzhong ify">山竹</div>
+					<div class="pingzhong ify">石榴</div>
+					<div class="pingzhong ify">嘎啦果</div>
+					<div class="china_list xiaotot ify"><div></div><p>国产水果</p></div>
+					<div class="pingzhong ify">提子</div>
+					<div class="pingzhong ify">百香果</div>
+					<div class="pingzhong ify">甘蔗</div>
+					<div class="pingzhong ify">桃李</div>
+					<div class="pingzhong ify">火龙果</div>
+					<div class="sock_list xiaotot ify"><div></div><p>美味零食</p></div>
+					<div class="pingzhong ify">坚果干果</div>
+					<div class="pingzhong ify">办公零食</div>
+					<div class="gift_list xiaotot"><div></div><p>水果礼盒</p></div>
+					
+					<div class="pingzhong ify">礼篮礼盒</div>
+					<div class="riz_list xiaotot ify"><div></div><p>鲜果乐园</p></div>
+					<div class="coupon_list xiaotot ify"><div></div><p>水果礼品卡</p></div>
+					<div class="pingzhong ify">礼卡礼券</div>
+					<div class="vegetable_list xiaotot ify"><div></div><p>农特产品</p></div>
+					
+				</div>
+				<div class="right">
+					<div class="head">
+						<ul>
+							<li>默认</li>
+							<li>销量</li>
+							<li>好评</li>
+							<li>价格</li>
+						</ul>
+						<div class="pronum">
+							<span>共</span>
+							<span class="tot_pro"></span>
+							<span>个商品</span>
+							<span class="nowye">1</span>
+							<span>/</span>
+							<span class="totye">1</span>
+						</div>
+						<div class="updown">
+							<div><</div>
+							<div>></div>
+						</div>
+					</div>
+					<div class="listProducts"></div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footerbox">
+				<div class="head">
+					<a href=""><img src="../imgs/little/qq.jpg"/></a>
+					<a href=""><img src="../imgs/little/cd.jpg"/></a>
+					<a href=""><img src="../imgs/little/qc.jpg"/></a>
+					<a href=""><img src="../imgs/little/sf.jpg"/></a>
+				</div>
+				<div class="mid">
+					<div>
+						<div><img src="../imgs/little/logo.gif"/></div>
+						<p>18030149520</p>
+						<p>周一至周日8:30-22:00</p>
+					</div>
+					<div>
+						<ul>
+							<p>新手上路</p>
+							<li><a href="">购物流程</a></li>
+							<li><a href="">订购方式</a></li>
+							<li><a href="">常见问题</a></li>
+						</ul>
+						<ul>
+							<p>支付方式</p>
+							<li><a href="">货到付款区域</a></li>
+							<li><a href="">配送支付智能查询</a></li>
+							<li><a href="">支付方式说明</a></li>
+							<li><a href="">礼品卡</a></li>
+						</ul>
+						<ul>
+							<p>合作专区</p>
+							<li><a href="">供应商申请</a></li>
+							<li><a href="">商务合作</a></li>
+							<li><a href="">商品资质审核标准</a></li>
+							<li><a href="">供应商保证金协议</a></li>
+						</ul>
+						<ul>
+							<p>售后服务</p>
+							<li><a href="">售后服务保证</a></li>
+							<li><a href="">产品质量保证</a></li>
+							<li><a href="">退换货流程</a></li>
+						</ul>
+					</div>
+					<div class="right">
+						<div>
+							<p>手机客户端</p>
+							<img src="../imgs/1451090990913635252.jpg"/>
+						</div>
+						<div>
+							<p>官方微信</p>
+							<img src="../imgs/1451091172383491616.jpg"/>
+						</div>
+					</div>
+				</div>
+				<div class="foot">
+					<div>
+						<img src="../imgs/little/kxicon.jpg"/>
+					</div>
+					<ul>
+						<li><a href="">免责条款 </a></li>
+						<li><a href="">隐私保护</a></li>
+						<li><a href="">咨询热点</a></li>
+						<li><a href="">联系我们</a></li>
+						<li><a href="">公司简介</a></li>
+						<li><a href="">商务合作</a></li>
+						<li><a href="">配送方式</a></li>
+					</ul>
+					<p>ICP备案证书号:闽ICP备11010696号</p>
+			</div>
+			</div>
+		</div>
+	</body>
+</html>

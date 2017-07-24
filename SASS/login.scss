@@ -1,0 +1,40 @@
+.login{
+    width: 1263px;height: 443px;position: relative;
+    div:nth-child(1){
+        margin-left: 135px;width: 523px;height: 324px;float: left;
+        img{
+            width: 523px;height: 324px;
+        }
+    }
+    div:nth-child(2){
+        margin-left: 35px;width: 389px;height: 327px;border: 6px solid #f5f5f5;float: left;padding-left:35px ;
+        p{
+            margin-top: 22px;font-size: 12px;color: #646464;
+        }
+        input{
+            width: 320px;height: 34px;margin-top: 8px;outline: none;
+        }
+        #log_btn{
+            background: #6e9b0c;border: none;border-radius:3px;color: white;font-size: 16px;
+        }
+        p:nth-of-type(3){
+            float: right;margin-right: 32px;
+        }
+        ul{
+            height: 15px;margin-top: 8px;
+            li{
+                float: left;height: 15px;
+                a{
+                    color: #176246;font-size: 12px;padding-left: 5px;padding-right: 5px;border-right:1px solid #926291 ;
+                }
+            }
+        }
+    }
+    a{
+        div:nth-child(1){
+        background: #7cbd55;color: white;position: absolute;right: 210px;top:-32px;width: 117px;
+        height: 32px;text-align: center;line-height: 32px;
+    } 
+        
+    }
+}

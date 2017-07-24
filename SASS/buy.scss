@@ -1,0 +1,140 @@
+
+.header .mid{
+    a:nth-child(1){
+        float: left;
+    }
+    img:nth-child(2){
+       float: left;margin-left: 337px;
+    }
+}
+.buy_product{
+    width: 100%;
+    .buy_productbox{
+        width: 1000px;
+        .head{
+            width: 1000px;height: 50px;line-height: 50px;
+            h2{
+                float: left;color: #565656;
+            }
+            .totile{
+                float: left;margin-left: 680px;
+                span{
+                    color: red;
+                }
+            }
+            .tobuy{
+                width :60px;  height: 30px;color: white;background: #75AB25;float: right;text-align: center;
+                line-height: 30px;margin-right: 10px;margin-top: 10px;cursor: pointer;
+            }
+        }
+        .buy_sure{
+            width: 1000px;
+            ul {
+                li:nth-child(1){
+                    width: 90px;
+                }
+                li:nth-child(2){
+                    width: 300px;
+                }
+                li:nth-child(3){
+                    width: 60px;
+                }
+                li:nth-child(4){
+                    width: 150px;
+                }
+                li:nth-child(5){
+                    width: 90px;
+                }
+                li:nth-child(6){
+                    width: 200px;
+                }
+                li:nth-child(7){
+                    width: 110px;
+                }
+            }    
+            .ul_head{
+                height: 30px; width: 1000px;background: #eeeeee;
+                li{float: left;height: 30px;text-align: center;line-height: 30px;color: #565656;}
+                
+            }
+            .buy_product_list{
+                height: 100px;width: 1000px;
+                
+                li{
+                    float: left;height: 100px;text-align: center;line-height: 100px;color: #6b6b6b;
+                    
+                }
+                li:nth-child(1){
+                    width: 90px;
+                }
+                li:nth-child(3){
+                    width: 80px;
+                }
+                li:nth-child(5){
+                    width: 70px;
+                }
+                li:nth-child(6){
+                    width: 200px;line-height: 20px;font-size: 14px;text-align: left;text-indent: 2em;
+                    padding-top: 10px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+                }
+                li:nth-child(7){
+                    width: 110px;
+                }
+                li:nth-child(2){
+                    padding:20px 0 0 10px ;width: 300px;
+                    img{
+                        width: 60px;height: 60px;float: left;
+                    }
+                    p{
+                        float: left;margin-top: 5px;font-size: 14px;height:20px;line-height: 20px;
+                        margin-left: 10px;width: 200px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+                    }
+                }
+                li:nth-child(4){
+                    padding:41px 0 0 45px ;width: 150px;
+                    p{
+                        width: 12px;height: 20px;background:#eeeeee ;line-height: 13px;border: 1px solid #cacaca;
+                        float: left;
+                    }
+                    input{
+                        width: 30px;height: 20px;border:1px solid #cacaca; float: left;margin:0 5px 0 5px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        .bottom{
+            width: 1000px;height: 50px;
+            p{float: left;height: 50px;line-height: 50px;text-align: center;font-size: 14px;}
+            p:nth-child(1){
+                width: 122px;color:#565656 ;    
+                span{
+                    font-weight: 700;            
+                }
+            }
+            p:nth-child(2){
+                width: 100px;    color:#565656 ; 
+                span{
+                    font-weight: 700;               
+                }
+            }
+            p:nth-child(3){
+                float: right;   color:#565656 ;margin-right: 10px;
+                span{color: red;}
+                span:nth-child(2),span:nth-child(3){font-size: 20px;}
+            }
+        }
+        .tobuyxx{
+            width: 1000px;height: 65px;
+            a:nth-child(1) div{
+                background: #fff5f1;color: #565656;border: 1px solid #6e9b0c;text-align: center;
+                line-height: 28px;width: 72px;height: 28px;float: left;margin-top:30px;
+            }
+            a:nth-child(2) div{
+                background: #6e9b0c;color: white;text-align: center;
+                line-height: 45px;width: 150px;height: 45px;float: right;margin-top:10px;
+            }
+        }
+    }
+}
+

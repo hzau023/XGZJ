@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/buy.css"/>
+		<script src="../js/jquery/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/artTemplate/template-native.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery_plugins/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/buy.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--动态加载购买商品-->
+		<script type="text/html" id="buy_products">
+			<% for (var i = 0, len = products.length; i < len; i++) { 
+				var prod = products[i];
+			%>
+				<div class="buy_product_list">
+					<li><input type="checkbox" class="ck_product" checked="checked"/></li>
+					<li><img src=<%= "../"+prod.img_src %>/><p class="name"><%= prod.name %></p></li>
+					<li><span>￥</span><span class="price"><%= prod.price %></span></li>
+					<li><p class="minus">-</p><input type="text" class="amount" value=" <%= prod.amount %> "/><p class="add">+</p></li>
+					<li><span>￥</span><span class="sub"><%= prod.litot %></span></li>
+					<li class="exp"><%= prod.exp %></li>
+					<li class="del">删除</li>
+				</div>
+			<% } %>
+		</script>
+		<div class="header">
+			<div class="headerbox">
+				<div class="top">
+					<p id="headerId">欢迎来到鲜果之家网上水果商城！ 鲜果之家，美味水果天天特价！ 请
+						<a href="login.html"> 登录</a> 
+						<a href="register.html"> 免费注册</a>
+						<a href=""> 【合作网站账户登录】</a>
+					</p>
+					<ul class="ul1">
+						<li><a href=""><img src="../imgs/little/qq_logo_16.png"/></a></li>
+						<li><a href=""><img src="../imgs/little/sina_logo_16.png"/></a></li>
+						<li><a href=""><img src="../imgs/little/taobao_logo_16.gif"/></a></li>
+						<li><a href=""><img src="../imgs/little/alipay_logo_16.gif"/></a></li>
+					</ul>
+					<ul class="ul2">
+						<li><a href="">我的订单</a></li>
+						<li>
+							<a href="">会员中心<div></div></a>
+							<div class="ul2_list">
+								<div><a href="">我的订单</a></div>
+								<div><a href="">我的红包</a></div>
+								<div><a href="">我的收藏</a></div>
+								<div><a href="">账户余额</a></div>
+							</div>
+						</li>
+						<li>
+							<a href="">帮助中心<div></div></a>
+							<div class="ul3_list">
+								<div><a href="">购物指南</a></div>
+								<div><a href="">配送服务</a></div>
+								<div><a href="">配送服务</a></div>
+								<div><a href="">售后服务</a></div>
+							</div>
+						</li>
+						<li>
+							<a href="">网站导航<div></div></a>
+							<div class="ul4_list">
+								<div>
+									<h4>商品分类</h4>
+									<ul>
+										<li><a href="">进口水果</a></li>
+										<li><a href="">国产水果</a></li>
+										<li><a href="">美味零食</a></li>
+										<li><a href="">水果礼盒</a></li>
+										<li><a href="">鲜果乐园</a></li>
+										<li><a href="">水果礼品卡</a></li>
+										<li><a href="">农特产品</a></li>
+									</ul>
+								</div>
+								<div>
+									<h4>特色频道</h4>
+									<ul>
+										<li><a href="">酒水饮料</a></li>
+										<li><a href="">生鲜专区</a></li>
+										<li><a href="">团购专区</a></li>
+									</ul>
+								</div>
+								<div>
+									<h4>更多</h4>
+									<ul>
+										<li><a href="">手机版</a></li>
+										<li><a href="">收藏我们</a></li><br />
+										<li>客服电话：18030149520</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="ul3">
+						<li><a href=""><img src="../imgs/little/sina_logo_16.png"/></a></li>
+						<li><a href=""><div></div></a></li>
+					</ul>
+					<div class="weixin">
+						<p>关注鲜果之家微信</p>
+						<img src="../imgs/1451091172383491616.jpg"/>
+					</div>
+				</div>
+				<div class="mid">
+					<a href="../index.html"><img src="../imgs/1449127199437894093.png"/></a>
+					<img src="../imgs/little/step_01.jpg"/>
+				</div>
+			</div>
+		</div>
+		<div class="buy_product">
+			<div class="buy_productbox">
+				<div class="head">
+					<h2>我的购物车</h2>
+					<div class="totile">
+						共计:
+						<span>￥</span>
+						<span class="totilemon"></span>
+					</div>
+					<a href="address.html"><div class="tobuy">结算</div></a>
+				</div>
+				<div class="buy_sure">
+					<ul class="ul_head">
+						<li class="li1"><input type="checkbox" id="ck_all" checked="checked"/>全选</li>
+						<li>商品</li>
+						<li>单价</li>
+						<li>数量</li>
+						<li>小计</li>
+						<li>属性</li>
+						<li>操作</li>
+					</ul>
+					
+				</div>
+				<div class="bottom">
+					<p class="del_check"><span>x</span>删除选定商品</p>
+					<p class="del_all"><span>x</span>清空购物车</p>
+					<p>数量总计：<span class="product_num"></span>  商品总计(不含运费)：<span>￥</span><span class="totilemon"></span></p>
+				</div>
+				<div class="tobuyxx">
+					<a href="../index.html"><div>继续购物</div></a>
+					<a href="address.html"><div>去结算</div></a>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="head">
+				<a href=""><img src="../imgs/little/qq.jpg"/></a>
+				<a href=""><img src="../imgs/little/cd.jpg"/></a>
+				<a href=""><img src="../imgs/little/qc.jpg"/></a>
+				<a href=""><img src="../imgs/little/sf.jpg"/></a>
+			</div>
+			<div class="mid">
+				<div>
+					<div><img src="../imgs/little/logo.gif"/></div>
+					<p>18030149520</p>
+					<p>周一至周日8:30-22:00</p>
+				</div>
+				<div>
+					<ul>
+						<p>新手上路</p>
+						<li><a href="">购物流程</a></li>
+						<li><a href="">订购方式</a></li>
+						<li><a href="">常见问题</a></li>
+					</ul>
+					<ul>
+						<p>支付方式</p>
+						<li><a href="">货到付款区域</a></li>
+						<li><a href="">配送支付智能查询</a></li>
+						<li><a href="">支付方式说明</a></li>
+						<li><a href="">礼品卡</a></li>
+					</ul>
+					<ul>
+						<p>合作专区</p>
+						<li><a href="">供应商申请</a></li>
+						<li><a href="">商务合作</a></li>
+						<li><a href="">商品资质审核标准</a></li>
+						<li><a href="">供应商保证金协议</a></li>
+					</ul>
+					<ul>
+						<p>售后服务</p>
+						<li><a href="">售后服务保证</a></li>
+						<li><a href="">产品质量保证</a></li>
+						<li><a href="">退换货流程</a></li>
+					</ul>
+				</div>
+				<div class="right">
+					<div>
+						<p>手机客户端</p>
+						<img src="../imgs/1451090990913635252.jpg"/>
+					</div>
+					<div>
+						<p>官方微信</p>
+						<img src="../imgs/1451091172383491616.jpg"/>
+					</div>
+				</div>
+			</div>
+			<div class="foot">
+					<div>
+						<img src="../imgs/little/kxicon.jpg"/>
+					</div>
+					<ul>
+						<li><a href="">免责条款 </a></li>
+						<li><a href="">隐私保护</a></li>
+						<li><a href="">咨询热点</a></li>
+						<li><a href="">联系我们</a></li>
+						<li><a href="">公司简介</a></li>
+						<li><a href="">商务合作</a></li>
+						<li><a href="">配送方式</a></li>
+					</ul>
+					<p>ICP备案证书号:闽ICP备11010696号</p>
+				</div>
+		</div>	
+	</body>
+</html>
